@@ -5,6 +5,14 @@ describe 'lmod' do
     context "on #{os}" do
       let(:facts) { facts }
 
+      if facts[:osfamily] == 'Debian'
+        modules_csh_path = '/etc/csh/login.d/modules.csh'
+        stdenv_csh_path = '/etc/csh/login.d/z00_StdEnv.csh'
+      else
+        modules_csh_path = '/etc/profile.d/modules.csh'
+        stdenv_csh_path = '/etc/profile.d/z00_StdEnv.csh'
+      end
+
       it { should compile.with_all_deps }
       it { should create_class('lmod') }
       it { should contain_class('lmod::params') }
@@ -41,22 +49,15 @@ describe 'lmod' do
                           ]
         end
         if facts[:osfamily] == 'RedHat'
-          modules_csh_path = '/etc/profile.d/modules.csh'
-          stdenv_csh_path = '/etc/profile.d/z00_StdEnv.csh'
           package_name = 'Lmod'
           runtime_packages = [ 'lua' ]
           build_packages = [ 'lua-devel' ]
         elsif facts[:osfamily] == 'Debian'
-          modules_csh_path = '/etc/csh/login.d/modules.csh'
-          stdenv_csh_path = '/etc/csh/login.d/z00_StdEnv.csh'
           package_name = 'lmod'
           runtime_packages = [ 'lua5.2' ]
           build_packages = [ 'liblua5.2-dev',
                              'lua-filesystem-dev',
                              'lua-posix-dev' ]
-        else
-          modules_csh_path = '/etc/profile.d/modules.csh'
-          stdenv_csh_path = '/etc/profile.d/z00_StdEnv.csh'
         end
 
         if facts[:osfamily] == 'RedHat'
