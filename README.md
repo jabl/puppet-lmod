@@ -1,6 +1,6 @@
 # puppet-lmod
 
-[![Build Status](https://travis-ci.org/treydock/puppet-lmod.png)](https://travis-ci.org/treydock/puppet-lmod)
+[![Build Status](https://travis-ci.org/jabl/puppet-lmod.png)](https://travis-ci.org/jabl/puppet-lmod)
 
 ## Overview
 
