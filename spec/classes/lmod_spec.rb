@@ -36,6 +36,7 @@ describe 'lmod' do
                            'lua-json',
                            'lua-posix',
                            'tcl',
+                           'tcsh',
                            'zsh',
                           ]
         else
@@ -45,6 +46,7 @@ describe 'lmod' do
                            'lua-posix',
                            'lua-term',
                            'tcl',
+                           'tcsh',
                            'zsh',
                           ]
         end

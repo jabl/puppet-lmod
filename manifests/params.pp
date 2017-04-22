@@ -71,6 +71,7 @@ class lmod::params {
           'lua-json',
           'lua-posix',
           'tcl',
+          'tcsh',
           'zsh',
         ]
       } else {
@@ -80,6 +81,7 @@ class lmod::params {
           'lua-posix',
           'lua-term',
           'tcl',
+          'tcsh',
           'zsh',
         ]
       }
