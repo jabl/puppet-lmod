@@ -24,12 +24,23 @@ describe 'lmod' do
 
       describe 'lmod::install' do
         if facts[:osfamily] == 'RedHat'
-          base_packages = [
-            'lua-filesystem',
-            'lua-posix',
-            'tcl',
-            'zsh',
-          ]
+          if fact('operatingsystemmajrelease') == '5'
+            base_packages = [
+              'lua-filesystem',
+              'lua-posix',
+              'tcl',
+              'zsh',
+            ]
+          else
+            base_packages = [
+              'lua-filesystem',
+              'lua-json',
+              'lua-posix',
+              'lua-term',
+              'tcl',
+              'zsh',
+            ]
+          end
           package_name = 'Lmod'
           runtime_packages = [ 'lua' ]
           build_packages = [ 'lua-devel' ]
