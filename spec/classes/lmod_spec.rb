@@ -24,7 +24,7 @@ describe 'lmod' do
 
       describe 'lmod::install' do
         if facts[:osfamily] == 'RedHat'
-          if fact('operatingsystemmajrelease') == '5'
+          if facts[:operatingsystemmajrelease] == '5'
             base_packages = [
               'lua-filesystem',
               'lua-posix',
