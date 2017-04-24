@@ -56,7 +56,8 @@ class lmod (
       $_file_ensure = 'absent'
     }
     default: {
-      fail("Module ${module_name}, ensure must be 'present' or 'absent', ${ensure} given.")
+      fail("Module ${module_name}, ensure must be 'present' or 'absent', \
+      ${ensure} given.")
     }
   }
 
