@@ -45,15 +45,26 @@ describe 'lmod' do
           runtime_packages = [ 'lua' ]
           build_packages = [ 'lua-devel' ]
         elsif facts[:osfamily] == 'Debian'
-          base_packages = [
-            'lua-filesystem',
-            'lua-json',
-            'lua-posix',
-            'lua-term',
-            'tcl',
-            'tcsh',
-            'zsh',
-          ]
+          if facts[:operatingsystemmajrelease] == '14.04'
+            base_packages = [
+              'lua-filesystem',
+              'lua-json',
+              'lua-posix',
+              'tcl',
+              'tcsh',
+              'zsh',
+            ]
+          else
+            base_packages = [
+              'lua-filesystem',
+              'lua-json',
+              'lua-posix',
+              'lua-term',
+              'tcl',
+              'tcsh',
+              'zsh',
+            ]
+          end
           package_name = 'lmod'
           runtime_packages = [ 'lua5.2' ]
           build_packages = [ 'liblua5.2-dev',
