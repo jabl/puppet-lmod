@@ -65,27 +65,15 @@ class lmod::params {
       $modules_csh_path = '/etc/csh/login.d/modules.csh'
       $stdenv_csh_path = '/etc/csh/login.d/z00_StdEnv.csh'
       $package_name = 'lmod'
-      if $::operatingsystemmajrelease == '14.04' {
-        $base_packages = [
-          'lua-filesystem',
-          'lua-json',
-          'lua-posix',
-          'tcl',
-          'tcsh',
-          'zsh',
-        ]
-      } else {
-        $base_packages = [
-          'lua-filesystem',
-          'lua-json',
-          'lua-posix',
-          'lua-term',
-          'tcl',
-          'tcsh',
-          'zsh',
-        ]
-      }
-
+      $base_packages = [
+        'lua-filesystem',
+        'lua-json',
+        'lua-posix',
+        'lua-term',
+        'tcl',
+        'tcsh',
+        'zsh',
+      ]
       $runtime_packages = [ 'lua5.2' ]
       $build_packages = [
         'liblua5.2-dev',

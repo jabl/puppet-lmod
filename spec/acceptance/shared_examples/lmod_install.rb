@@ -19,26 +19,15 @@ def base_packages
       ]
     end
   when 'Debian'
-    if fact('operatingsystemmajrelease') == '14.04'
-      [
-        'lua-filesystem',
-        'lua-json',
-        'lua-posix',
-        'tcl',
-        'tcsh',
-        'zsh',
-      ]
-    else
-      [
-        'lua-filesystem',
-        'lua-json',
-        'lua-posix',
-        'lua-term',
-        'tcl',
-        'tcsh',
-        'zsh',
-      ]
-    end
+    [
+      'lua-filesystem',
+      'lua-json',
+      'lua-posix',
+      'lua-term',
+      'tcl',
+      'tcsh',
+      'zsh',
+    ]
   else
     []
   end
